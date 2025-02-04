@@ -66,15 +66,25 @@ If you downgraded to iOS 9 or later, please use the jailbreak app on your home s
 For iOS 7 and 8, see below troubleshooting steps for jailbreaking.
 
 ## IVKey
+
 IVKey问题不会影响到想要降级 iOS 11 及以上版本的用户，因为 iOS 11 及以上版本不需要解密 Root Filesystem 。
+
 由于一些很奇怪的原因，FirmwareKeysDl-1.0-SNAPSHOT.jar获取到的IVKey有误，导致OS.dmg无法正常生成，也就无法成功降级。
+
 因此这个版本的Semaphorin修改了IVKey的获取方式，改变为用户手动填写IVKey。
+
 获取地址 : https://www.theiphonewiki.com/wiki/Firmware_Keys
+
 举个例子吧，
+
 如果你想降级 iPad Air 2 (iPad 5,3) 的 iOS 8.3 版本，那么你需要访问这个网站
+
 然后向下滑动页面，找到 Firmware Versions，点击8.x
+
 仍然是向下滑动页面，找到 iPad Air 2，点击 iPad 5,3 下面的 8.3
+
 界面中的 Root Filesystem 一栏中的 Key 值，就是你的IVKey值。
+
 等到Semaphorin.sh在降级过程中提示你输入IVKey的时候，粘贴进去就可以了😉
 
 ## Subsequent runs after downgrade is finished
