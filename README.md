@@ -37,6 +37,22 @@ Note: This fork has mostly only been tested on Linux. For macOS, try doing the [
 
 Other iOS versions not listed in the chart may also work but they might have unexpected broken features/jailbreak
 
+## 使用脚本之前
+
+！！！ 一定要做 ！！！ 真的很重要
+
+1. 安装 Python： 访问 https://www.python.org/downloads/macos/，嗯，我用的是 Python 3.11.11。
+
+2. 安装 Homebrew： 访问 https://brew.sh，安装方法在里面。
+
+3. 安装 openssl@3 ： 打开终端，输入 brew install openssl@3。
+
+4. 设置 openssl@3 的符号文件 ： 打开终端，输入
+
+    ln -s /usr/local/opt/openssl@3/lib/libcrypto.3.dylib /usr/local/lib/libcrypto.3.dylib
+    
+    ln -s /usr/local/opt/openssl@3/lib/libssl.3.dylib /usr/local/lib/libssl.3.dylib
+    
 ## How do I use this?
 
 This script deletes everything on your phone, including the main OS if you are not downgrading to iOS 10.3 or later. Make sure to backup all of your data before using this script as **anything on the device prior to running this script will be unrecoverable afterwards**. Use this script at your own risk. We are not responsible for any damages caused by you using this script.
