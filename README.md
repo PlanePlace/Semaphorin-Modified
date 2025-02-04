@@ -15,9 +15,13 @@
 
 ## Support
 
-No support
+有问题可以提在 Issues 里面！！！
 
-Do not expect updates to this anymore, especially with all the events that have happened surrounding this tool
+我还是个高中生，没有什么能力，但是如果我能做的事情我一定会做的！😭
+
+Semaphorin这个项目已经废弃掉了，但是大家还是很想用它，因为能无视 SEP 强制降级的工具只有这一个，所以我尽我一份努力来修复一下
+
+各位大佬轻喷，希望 64bit 的降级道路未来能出现更多可能！
 
 It may be better for someone to rewrite the entire thing, and/or just create or use another tool
 
@@ -63,7 +67,7 @@ To use this app, you need to downgrade to a supported version, and have a suppor
 
 `xcode-select install` to install `git` on macos
 
-`git clone https://github.com/LukeZGD/Semaphorin && cd Semaphorin`
+`git clone https://github.com/PlanePlace/Semaphorin-Modified && cd Semaphorin-Modified`
 
 Connect device in DFU mode
 
