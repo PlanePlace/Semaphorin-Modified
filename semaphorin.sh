@@ -1615,7 +1615,9 @@ _download_root_fs() {
                         fn="$("$bin"/PlistBuddy -c "Print BuildIdentities:0:Manifest:OS:Info:Path" BuildManifest.plist | tr -d '"')"
                     fi
                     "$bin"/pzb -g "$fn" "$ipswurl"
-                    ivkey="$(../java/bin/java -jar ../Darwin/FirmwareKeysDl-1.0-SNAPSHOT.jar -ivkey $fn $3 $1)"
+                    echo -e "If you wanna know the ivkey, please go to visit theapplewiki.com\nivkey is also called Firmware Key\nYou should find the root system's ivkey"
+                    read -p "Please input ivkey: " ivkey
+                    # 我是真的不知道为什么用jar获取出的ivkey会出错，所以只能用这个笨笨的方法了🥲
                     "$bin"/dmg extract $fn "$dir"/$1/$cpid/$3/OS.dmg -k $ivkey
                 else
                     local fno
@@ -2063,7 +2065,8 @@ if [[ "$ramdisk" == 1 || "$restore" == 1 || "$dump_blobs" == 1 || "$force_activa
             elif [[ "$deviceid" == "iPad"* && ! "$deviceid" == "iPad4"* ]]; then
                 _download_ramdisk_boot_files $deviceid $replace 14.3
             else
-                _download_ramdisk_boot_files $deviceid $replace 12.5.4
+                _download_ramdisk_boot_files $deviceid $replace 14.3
+            # 和上方一样都是“FirmwareKeysDl-1.0-SNAPSHOT.jar” 这个东西反出来的结果有毛病 不会修啊🥲
             fi
         elif [[ "$deviceid" == "iPhone8,1" && "$version" == "11.0" ]]; then
             _download_ramdisk_boot_files $deviceid $replace 10.3.3
@@ -2072,7 +2075,8 @@ if [[ "$ramdisk" == 1 || "$restore" == 1 || "$dump_blobs" == 1 || "$force_activa
             elif [[ "$deviceid" == "iPad"* && ! "$deviceid" == "iPad4"* ]]; then
                 _download_ramdisk_boot_files $deviceid $replace 14.3
             else
-                _download_ramdisk_boot_files $deviceid $replace 12.5.4
+                _download_ramdisk_boot_files $deviceid $replace 14.3
+            # 不会修+1
             fi
         elif [[ "$version" == "11."* || "$version" == "12."* || "$version" == "13."* || "$version" == "14."* ]]; then
             if [[ "$(./java/bin/java -jar ./Darwin/FirmwareKeysDl-1.0-SNAPSHOT.jar -e 14.3 $deviceid)" == "true" ]]; then
@@ -2080,7 +2084,8 @@ if [[ "$ramdisk" == 1 || "$restore" == 1 || "$dump_blobs" == 1 || "$force_activa
             elif [[ "$deviceid" == "iPad"* && ! "$deviceid" == "iPad4"* ]]; then
                 _download_ramdisk_boot_files $deviceid $replace 14.3
             else
-                _download_ramdisk_boot_files $deviceid $replace 12.5.4
+                _download_ramdisk_boot_files $deviceid $replace 14.3
+            # 不会修+1
             fi
         elif [[ "$os" = "Darwin" && ! "$deviceid" == "iPhone6"* && ! "$deviceid" == "iPhone7"* && ! "$deviceid" == "iPad4"* && ! "$deviceid" == "iPad5"* && ! "$deviceid" == "iPod7"* && "$version" == "9."* ]]; then
             _download_ramdisk_boot_files $deviceid $replace 9.3
@@ -2161,7 +2166,8 @@ if [[ "$ramdisk" == 1 || "$restore" == 1 || "$dump_blobs" == 1 || "$force_activa
             elif [[ "$deviceid" == "iPad"* && ! "$deviceid" == "iPad4"* ]]; then
                 cd "$dir"/$deviceid/$cpid/ramdisk/14.3
             else
-                cd "$dir"/$deviceid/$cpid/ramdisk/12.5.4
+                cd "$dir"/$deviceid/$cpid/ramdisk/14.3
+            # 不会修+1
             fi
         elif [[ "$os" = "Darwin" && ! "$deviceid" == "iPhone6"* && ! "$deviceid" == "iPhone7"* && ! "$deviceid" == "iPad4"* && ! "$deviceid" == "iPad5"* && ! "$deviceid" == "iPod7"* && "$version" == "9."* ]]; then
             cd "$dir"/$deviceid/$cpid/ramdisk/9.3
@@ -2396,7 +2402,8 @@ if [[ "$ramdisk" == 1 || "$restore" == 1 || "$dump_blobs" == 1 || "$force_activa
                     elif [[ "$deviceid" == "iPad"* && ! "$deviceid" == "iPad4"* ]]; then
                         cd "$dir"/$deviceid/$cpid/ramdisk/14.3
                     else
-                        cd "$dir"/$deviceid/$cpid/ramdisk/12.5.4
+                        cd "$dir"/$deviceid/$cpid/ramdisk/14.3
+                    # 不会修+1
                     fi
                 elif [[ "$os" = "Darwin" && ! "$deviceid" == "iPhone6"* && ! "$deviceid" == "iPhone7"* && ! "$deviceid" == "iPad4"* && ! "$deviceid" == "iPad5"* && ! "$deviceid" == "iPod7"* && "$version" == "9."* ]]; then
                     cd "$dir"/$deviceid/$cpid/ramdisk/9.3
