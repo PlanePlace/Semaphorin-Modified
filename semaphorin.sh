@@ -1615,7 +1615,7 @@ _download_root_fs() {
                         fn="$("$bin"/PlistBuddy -c "Print BuildIdentities:0:Manifest:OS:Info:Path" BuildManifest.plist | tr -d '"')"
                     fi
                     "$bin"/pzb -g "$fn" "$ipswurl"
-                    echo -e "If you wanna know the ivkey, please go to visit theapplewiki.com\nivkey is also called Firmware Key\nYou should find the root system's ivkey"
+                    echo -e "If you wanna know the ivkey, please go to visit https://www.theiphonewiki.com/wiki/Firmware_Keys\nivkey is also called Firmware Key\nYou should find the root system's ivkey"
                     read -p "Please input ivkey: " ivkey
                     # 我是真的不知道为什么用jar获取出的ivkey会出错，所以只能用这个笨笨的方法了🥲
                     "$bin"/dmg extract $fn "$dir"/$1/$cpid/$3/OS.dmg -k $ivkey
